@@ -10,9 +10,6 @@ import Home from './Pages/Home/Home/Home';
 function App() {
     return (
         <div className="App">
-            <h1>
-                This is App.js
-            </h1>
             <Router>
                 <Switch>
                     <Route path="/home">
