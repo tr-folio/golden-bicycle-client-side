@@ -28,7 +28,7 @@ const Review = (props) => {
                     {review_star_empty.map(star => <i className='far fa-star' key={star}></i>)}
                 </div>
             </div>
-            <p className="text-start fs-5">
+            <p className="fs-5" style={{textAlign: 'justify'}}>
                 {review.review_text}
             </p>
         </Row>
