@@ -8,7 +8,7 @@ const Header = () => {
             <Container>
                 <Navbar.Brand>Golden Bicycle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav" class="d-none d-lg-flex justify-content-lg-end">
+                <Navbar.Collapse id="responsive-navbar-nav" className="d-none d-lg-flex justify-content-lg-end">
                     <Nav>
                         <Nav.Link as={HashLink} to="">Home</Nav.Link>
                         <Nav.Link as={HashLink} to="">Link1</Nav.Link>
