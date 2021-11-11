@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../Shared/Footer/Footer";
 import Header from "../../Shared/Header/Header";
 import Banner from "../Banner/Banner";
 import CarbonBicycle from "../CarbonBicycle/CarbonBicycle";
@@ -16,6 +17,8 @@ const Home = () => {
             <Reviews></Reviews>
             <br/>
             <CarbonBicycle></CarbonBicycle>
+            <br/>
+            <Footer></Footer>
         </>
     );
 };
