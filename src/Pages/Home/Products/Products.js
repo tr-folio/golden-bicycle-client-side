@@ -10,6 +10,7 @@ const Products = () => {
         .then(res => res.json())
         .then(data => setProducts(data));
     }, []);
+    
     return (
         <div className="container">
             <h2 className="fw-bold mb-3">Our Products</h2>
