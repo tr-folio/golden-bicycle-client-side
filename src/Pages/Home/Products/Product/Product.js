@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Product = (props) => {
     const { product } = props;
@@ -13,7 +14,7 @@ const Product = (props) => {
             <p>
                 {product.description}
             </p>
-            <Button variant="primary" className="w-100">Purchase</Button>
+            <Link to={`/purchase/${product.id}`}><Button variant="primary" className="w-100">Purchase</Button></Link>
         </Col>
     );
 }
