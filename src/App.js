@@ -7,6 +7,8 @@ import {
 import Home from './Pages/Home/Home/Home';
 import Explore from './Pages/Explore/Explore';
 import Purchase from './Pages/Purchase/Purchase';
+import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
 
 function App() {
     return (
@@ -21,6 +23,12 @@ function App() {
                         </Route>
                         <Route path="/purchase/:id">
                             <Purchase></Purchase>
+                        </Route>
+                        <Route path="/login">
+                            <Login></Login>
+                        </Route>
+                        <Route path="/register">
+                            <Register></Register>
                         </Route>
                         <Route exact path="/">
                             <Home></Home>
