@@ -54,8 +54,6 @@ const Purchase = () => {
                         <h2 className="fw-light text-primary">Confirm Purchase</h2>
                         <hr/>
                         <form onSubmit={handlePurchaseForm}>
-                            {/* <input onBlur={handleInputField} className="w-75 px-2 fs-4" type="hidden" name="id" value={selectedProduct?.id}/> <br/> <br/> */}
-                            {/* <input onBlur={handleInputField} className="w-75 px-2 fs-4" type="text" name="productName" placeholder="product name"/> <br/> <br/> */}
                             <h6 className="w-75 mx-auto text-start fw-bold">Product Name:</h6>
                             <p className="w-75 bg-secondary mx-auto my-0 text-white text-start ps-2 fs-4">{formData.productName}</p> <br/>
                             <h6 className="w-75 mx-auto text-start fw-bold">Your Name:</h6>
