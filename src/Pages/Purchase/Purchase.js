@@ -12,7 +12,7 @@ const Purchase = () => {
         userEmail: '',
         address: '',
         phone: ''
-    }
+    };
     const { id } = useParams();
     
     useEffect(() => {
@@ -71,6 +71,7 @@ const Purchase = () => {
                     </Col>
                 </Row>
             </Container>
+            <br/>
         </div>
     );
 };
