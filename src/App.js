@@ -7,12 +7,10 @@ import {
 import Home from './Pages/Home/Home/Home';
 import Explore from './Pages/Explore/Explore';
 import Purchase from './Pages/Purchase/Purchase';
-import AuthProvider from './Context/AuthProvider/AuthProvider';
 
 function App() {
     return (
         <div className="App">
-            <AuthProvider>
                 <Router>
                     <Switch>
                         <Route path="/home">
@@ -29,7 +27,6 @@ function App() {
                         </Route>
                     </Switch>
                 </Router>
-            </AuthProvider>
         </div>
     );
 }
