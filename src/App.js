@@ -9,10 +9,12 @@ import Explore from './Pages/Explore/Explore';
 import Purchase from './Pages/Purchase/Purchase';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import AuthProvider from './context/AuthProvider/AuthProvider';
 
 function App() {
     return (
         <div className="App">
+            <AuthProvider>
                 <Router>
                     <Switch>
                         <Route path="/home">
@@ -35,6 +37,7 @@ function App() {
                         </Route>
                     </Switch>
                 </Router>
+            </AuthProvider>
         </div>
     );
 }
