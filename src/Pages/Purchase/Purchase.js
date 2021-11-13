@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
 
 const Purchase = () => {
     const [selectedProduct, setSelectedProduct] = useState({});
+    const history = useHistory();
     const userName = localStorage.getItem("userName");
     const userEmail = localStorage.getItem("userEmail");
 
@@ -33,7 +34,29 @@ const Purchase = () => {
 
     const handlePurchaseForm = (event) => {
         event.preventDefault();
-        console.log(formData);
+        // console.log(formData);
+        const placeOrderFlag = window.confirm('Do you want to place order?');
+        if (placeOrderFlag) {
+            // console.log('yes');
+            fetch('http://localhost:5000/placeorders', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.acknowledged) {
+                    window.alert('Successfully placed order.');
+                    history.replace('/');
+                }
+            })
+        }
+        // else {
+        //     console.log('no');
+        // }
     }
 
     return (
