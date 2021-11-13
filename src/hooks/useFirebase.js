@@ -28,6 +28,7 @@ const useFirebase = () => {
     }
 
     const loginUser = (email, password) => {
+        setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
         .then((userCreddential) => {
             const user = userCreddential.user;
@@ -35,6 +36,7 @@ const useFirebase = () => {
         .catch((error) => {
             const errorMessage = errorMessage;
         })
+        .finally(() => setIsLoading(false));
     }
 
     // observe user state

@@ -1,9 +1,12 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import Header from '../../Shared/Header/Header';
 
 const Login = () => {
+    const { user, isLoading, loginUser } = useAuth();
+
     const loginData = {
         email: '',
         password: ''
@@ -17,7 +20,8 @@ const Login = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        console.log(loginData)
+        loginUser(loginData.email, loginData.password);
+        // console.log(loginData);
     }
 
     return (
@@ -37,6 +41,8 @@ const Login = () => {
                         <p className="py-3">
                             <Link to="/register">New User? Please Register</Link>
                         </p>
+                        {isLoading && <Spinner animation="border" variant="primary"></Spinner>}
+                        {user?.email && <p className="text-success">Successfully Logged In</p>}
                     </Col>
                     <Col xs="12" lg="6">
                         <img src="https://i.ibb.co/wccXj9N/eberhard-grossgasteiger-8l-Dkm-Xn-Ko7s-unsplash.jpg" alt="" className="img-fluid" style={{borderRadius: '50%'}}/>

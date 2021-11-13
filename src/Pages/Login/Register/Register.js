@@ -26,7 +26,7 @@ const Register = () => {
             return;
         }
         registerUser(registerData.email, registerData.password);
-        console.log(registerData.email, registerData.password);
+        // console.log(registerData.email, registerData.password);
     }
 
     return (
