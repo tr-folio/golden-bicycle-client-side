@@ -28,7 +28,7 @@ const useFirebase = () => {
 
             })
             .catch((error) => {
-                
+
             })
         })
         .catch((error) => {
@@ -44,6 +44,7 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCreddential) => {
             const user = userCreddential.user;
+            localStorage.setItem("userName", user.displayName);
         })
         .catch((error) => {
             const errorMessage = errorMessage;
@@ -68,6 +69,7 @@ const useFirebase = () => {
     const logout = () => {
         signOut(auth).then(() => {
             setUser({});
+            localStorage.removeItem("userName");
         })
         .catch((error) => {
 
