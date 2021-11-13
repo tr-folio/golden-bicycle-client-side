@@ -1,0 +1,10 @@
+.custom-columns {
+    display: block;
+}
+
+/* media queries */
+@media only screen and (max-width: 992px) {
+    .custom-columns {
+        display: none;
+    }
+}
