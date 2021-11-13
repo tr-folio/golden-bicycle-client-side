@@ -8,6 +8,7 @@ const Register = () => {
     const { user, isLoading, registerUser } = useAuth();
 
     const registerData = {
+        name: '',
         email: '',
         password: '',
         password2: ''
@@ -25,7 +26,7 @@ const Register = () => {
             window.alert('Password did not matched');
             return;
         }
-        registerUser(registerData.email, registerData.password);
+        registerUser(registerData.email, registerData.password, registerData.name);
         // console.log(registerData.email, registerData.password);
     }
 
@@ -39,6 +40,7 @@ const Register = () => {
                         <h2>Please Register</h2>
                         <hr/>
                         <form onSubmit={handleRegister}>
+                            <input onBlur={handleInputField} className="w-75 px-2 fs-5" type="text" name="name" placeholder="Your Name"/> <br/> <br/>
                             <input onBlur={handleInputField} className="w-75 px-2 fs-5" type="email" name="email" placeholder="Your Email"/> <br/> <br/>
                             <input onBlur={handleInputField} className="w-75 px-2 fs-5" type="password" name="password" placeholder="Create Password"/> <br/> <br/>
                             <input onBlur={handleInputField} className="w-75 px-2 fs-5" type="password" name="password2" placeholder="Confirm Password"/> <br/> <br/>
