@@ -1,12 +1,11 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import useFirebase from '../../../hooks/useFirebase';
 import Header from '../../Shared/Header/Header';
 
 const Register = () => {
-    const { registerUser } = useAuth();
+    const { user, isLoading, registerUser } = useAuth();
 
     const registerData = {
         email: '',
@@ -48,6 +47,8 @@ const Register = () => {
                         <p className="py-3">
                             <Link to="/login">Already Registered? Please Login</Link>
                         </p>
+                        {isLoading && <Spinner animation="border" variant="primary"></Spinner>}
+                        {user?.email && <p className="text-success">User Created Successfully</p>}
                     </Col>
                     <Col xs="12" lg="6">
                         <img src="https://i.ibb.co/wccXj9N/eberhard-grossgasteiger-8l-Dkm-Xn-Ko7s-unsplash.jpg" alt="" className="img-fluid" style={{borderRadius: '50%'}}/>
