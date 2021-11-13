@@ -66,13 +66,18 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, []);
 
-    const logout = () => {
+    const logout = (history) => {
+        setIsLoading(true);
         signOut(auth).then(() => {
             setUser({});
             localStorage.removeItem("userName");
         })
         .catch((error) => {
 
+        })
+        .finally(() => {
+            setIsLoading(false);
+            history.replace('/');
         });
     }
 
