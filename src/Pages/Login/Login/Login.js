@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Header from '../../Shared/Header/Header';
 
 const Login = () => {
     const { user, isLoading, loginUser } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
 
     const loginData = {
         email: '',
@@ -20,7 +22,7 @@ const Login = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        loginUser(loginData.email, loginData.password);
+        loginUser(loginData.email, loginData.password, location, history);
         // console.log(loginData);
     }
 

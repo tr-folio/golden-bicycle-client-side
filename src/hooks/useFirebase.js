@@ -11,7 +11,7 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
-    const registerUser = (email, password, name) => {
+    const registerUser = (email, password, name, location, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -25,11 +25,14 @@ const useFirebase = () => {
                 photoURL: ""
             })
             .then(() => {
-
+                
             })
             .catch((error) => {
-
-            })
+                
+            });
+            localStorage.setItem("userName", name);
+            const destination = location?.state?.from || '/';
+            history.replace(destination);
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -39,12 +42,14 @@ const useFirebase = () => {
         .finally(() => setIsLoading(false));
     }
 
-    const loginUser = (email, password) => {
+    const loginUser = (email, password, location, history) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
         .then((userCreddential) => {
             const user = userCreddential.user;
             localStorage.setItem("userName", user.displayName);
+            const destination = location?.state?.from || '/';
+            history.replace(destination);
         })
         .catch((error) => {
             const errorMessage = errorMessage;

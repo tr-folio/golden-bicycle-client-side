@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Header from '../../Shared/Header/Header';
 
 const Register = () => {
     const { user, isLoading, registerUser } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
 
     const registerData = {
         name: '',
@@ -26,7 +28,7 @@ const Register = () => {
             window.alert('Password did not matched');
             return;
         }
-        registerUser(registerData.email, registerData.password, registerData.name);
+        registerUser(registerData.email, registerData.password, registerData.name, location, history);
         // console.log(registerData.email, registerData.password);
     }
 
