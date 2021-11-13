@@ -31,6 +31,7 @@ const useFirebase = () => {
                 
             });
             localStorage.setItem("userName", name);
+            localStorage.setItem("userEmail", email);
             const destination = location?.state?.from || '/';
             history.replace(destination);
         })
@@ -48,6 +49,7 @@ const useFirebase = () => {
         .then((userCreddential) => {
             const user = userCreddential.user;
             localStorage.setItem("userName", user.displayName);
+            localStorage.setItem("userEmail", user.email);
             const destination = location?.state?.from || '/';
             history.replace(destination);
         })
@@ -76,6 +78,7 @@ const useFirebase = () => {
         signOut(auth).then(() => {
             setUser({});
             localStorage.removeItem("userName");
+            localStorage.removeItem("userEmail");
         })
         .catch((error) => {
 
