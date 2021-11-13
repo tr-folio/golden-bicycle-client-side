@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import Header from '../../Shared/Header/Header';
+import ADHome from '../AdminDashboard/ADHome/ADHome';
+import UDHome from '../UserDashboard/UDHome/UDHome';
 import './DashboardHome.css';
 
 const DashboardHome = () => {
@@ -29,7 +31,8 @@ const DashboardHome = () => {
                         Side bar
                     </Col>
                     <Col xs="12" lg="9">
-                        Dashboard Contents
+                        <UDHome></UDHome>
+                        <ADHome></ADHome>
                     </Col>
                 </Row>
             </Container>

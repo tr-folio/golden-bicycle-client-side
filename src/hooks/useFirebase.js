@@ -91,6 +91,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName) => {
         const user = {email: email, displayName: displayName, role: 'normal'};
+        localStorage.setItem("userRole", user.role);
         fetch('http://localhost:5000/postusers', {
             method: 'POST',
             headers: {
