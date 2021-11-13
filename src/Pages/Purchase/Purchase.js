@@ -5,11 +5,14 @@ import Header from '../Shared/Header/Header';
 
 const Purchase = () => {
     const [selectedProduct, setSelectedProduct] = useState({});
+    const userName = localStorage.getItem("userName");
+    const userEmail = localStorage.getItem("userEmail");
+
     const formData = {
         id: selectedProduct.id,
         productName: selectedProduct.productName,
-        userName: '',
-        userEmail: '',
+        userName: userName,
+        userEmail: userEmail,
         address: '',
         phone: ''
     };
@@ -57,9 +60,9 @@ const Purchase = () => {
                             <h6 className="w-75 mx-auto text-start fw-bold">Product Name:</h6>
                             <p className="w-75 bg-secondary mx-auto my-0 text-white text-start ps-2 fs-4">{formData.productName}</p> <br/>
                             <h6 className="w-75 mx-auto text-start fw-bold">Your Name:</h6>
-                            <input onBlur={handleInputField} className="w-75 border border-secondary px-2 fs-4" type="text" name="userName" placeholder="Your Name"/> <br/> <br/>
+                            <input onBlur={handleInputField} className="w-75 border border-secondary px-2 fs-4" type="text" name="userName" placeholder={formData.userName}/> <br/> <br/>
                             <h6 className="w-75 mx-auto text-start fw-bold">Your Email:</h6>
-                            <input onBlur={handleInputField} className="w-75 border border-secondary px-2 fs-4" type="text" name="userEmail" placeholder="Your Email"/> <br/> <br/>
+                            <input onBlur={handleInputField} className="w-75 border border-secondary px-2 fs-4" type="email" name="userEmail" placeholder={formData.userEmail}/> <br/> <br/>
                             <h6 className="w-75 mx-auto text-start fw-bold">Your Address: </h6>
                             <input onBlur={handleInputField} className="w-75 border border-secondary px-2 fs-4" type="text" name="address" placeholder="Your Address"/> <br/> <br/>
                             <h6 className="w-75 mx-auto text-start fw-bold">Phone Number: </h6>
