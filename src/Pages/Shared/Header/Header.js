@@ -7,6 +7,7 @@ import useAuth from "../../../hooks/useAuth";
 const Header = () => {
     const { user, logout } = useAuth();
     const history = useHistory();
+    const userName = localStorage.getItem("userName");
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -19,7 +20,7 @@ const Header = () => {
                         <Nav.Link as={HashLink} to="/explore">Explore</Nav.Link>
                         {!user?.email && <Nav.Link as={HashLink} to="/login">Login</Nav.Link>}
                         {user?.email && <Button onClick={() => logout(history)} variant="primary">Logout</Button>}
-                        {user?.displayName && <span className="text-light mt-2 ps-2">Hello {user?.displayName}</span>}
+                        {userName && <span className="text-light mt-2 ps-2">Hello {userName}</span>}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
