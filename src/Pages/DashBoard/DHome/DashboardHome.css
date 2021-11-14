@@ -1,7 +1,11 @@
+.custom-dashboard-header {
+    height: 50px;
+}
+
 .dashboard-container {
     display: block;
     width: 100vw;
-    height: calc(100vh - 58px);
+    height: calc(100vh - 50px);
     padding: 0 0 10 0;
 }
 

@@ -32,7 +32,7 @@ const DashboardHome = () => {
 
     return (
         <div>
-            <div className="bg-dark py-1">
+            <div className="custom-dashboard-header bg-dark py-1">
                 <Container className="d-flex justify-content-between">
                     <div><h3 className="text-light">Dashboard</h3></div>
                     <div>
