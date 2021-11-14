@@ -79,6 +79,7 @@ const useFirebase = () => {
             setUser({});
             localStorage.removeItem("userName");
             localStorage.removeItem("userEmail");
+            localStorage.removeItem("userAdmin");
         })
         .catch((error) => {
 
@@ -89,9 +90,20 @@ const useFirebase = () => {
         });
     }
 
+    // check if current user is an admin or normal user
+    useEffect(() => {
+        fetch(`http://localhost:5000/checkAdmin/${user.email}`)
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data.admin);
+            if (data.admin) {
+                localStorage.setItem("userAdmin", true);
+            }
+        })
+    }, [user.email]);
+
     const saveUser = (email, displayName) => {
         const user = {email: email, displayName: displayName, role: 'normal'};
-        localStorage.setItem("userRole", user.role);
         fetch('http://localhost:5000/postusers', {
             method: 'POST',
             headers: {
