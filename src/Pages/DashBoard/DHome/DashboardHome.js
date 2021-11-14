@@ -1,41 +1,57 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import Header from '../../Shared/Header/Header';
+import { Link } from 'react-router-dom';
 import ADHome from '../AdminDashboard/ADHome/ADHome';
 import UDHome from '../UserDashboard/UDHome/UDHome';
 import './DashboardHome.css';
 
 const DashboardHome = () => {
-    const sideBar = document.getElementById('side-bar');
+    let sideBarFlag = true;
+    let elementSelector = '';
 
-    const showSideBar = () => {
-        sideBar.style.display = 'block';
-    }
-    const hideSideBar = () => {
-        sideBar.style.display = 'none';
+    const sideBarToggler = () => {
+        if (sideBarFlag === false) {
+            sideBarFlag = true;
+            elementSelector = document.getElementById('side-bar');
+            elementSelector.style.display = 'block';
+            elementSelector = document.getElementById('btn-side-bar-toggler');
+            elementSelector.textContent = 'Hide Menu';
+            elementSelector = document.getElementById('dashboard-routes');
+            elementSelector.style.width = 'calc(2*50% - 250px)';
+        }
+        else if (sideBarFlag === true) {
+            sideBarFlag = false;
+            elementSelector = document.getElementById('side-bar');
+            elementSelector.style.display = 'none';
+            elementSelector = document.getElementById('btn-side-bar-toggler');
+            elementSelector.textContent = 'Show Menu';
+            elementSelector = document.getElementById('dashboard-routes');
+            elementSelector.style.width = '100%';
+        }
     }
 
     return (
         <div>
-            <Header></Header>
-            <div className="mb-3 bg-dark py-1">
+            <div className="bg-dark py-1">
                 <Container className="d-flex justify-content-between">
-                    <Button variant="secondary" onClick={showSideBar}>Show Sidebar</Button>
-                    <Button variant="secondary" onClick={hideSideBar} className="d-lg-none">Hide Sidebar</Button>
+                    <div><h3 className="text-light">Dashboard</h3></div>
+                    <div>
+                        <Link to="/home" style={{textDecoration: 'none'}} className="text-light me-3">Home</Link>
+                        <Button variant="light" onClick={sideBarToggler} id="btn-side-bar-toggler">Hide Menu</Button>
+                    </div>
                 </Container>
             </div>
-            <br/>
-            <Container>
-                <Row>
-                    <Col xs="12" lg="3" id="side-bar" className="custom-columns">
-                        Side bar
-                    </Col>
-                    <Col xs="12" lg="9">
+            <div>
+                <div className="dashboard-container">
+                    <div id="side-bar" className="custom-nav bg-primary text-white p-3 text-start">
+                        <h4 className="ps-3">Menu</h4>
+                    </div>
+                    <div className="custom-routes p-3" id="dashboard-routes">
                         <UDHome></UDHome>
                         <ADHome></ADHome>
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

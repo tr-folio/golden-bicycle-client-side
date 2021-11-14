@@ -1,10 +1,20 @@
-.custom-columns {
+.dashboard-container {
     display: block;
+    width: 100vw;
+    height: calc(100vh - 58px);
+    padding: 0 0 10 0;
 }
 
-/* media queries */
-@media only screen and (max-width: 992px) {
-    .custom-columns {
-        display: none;
-    }
+.custom-nav {
+    display: block;
+    width: 250px;
+    height: 100%;
+    float: left;
+}
+
+.custom-routes {
+    display: block;
+    width: calc(2*50% - 250px);
+    height: 100%;
+    float: left;
 }
