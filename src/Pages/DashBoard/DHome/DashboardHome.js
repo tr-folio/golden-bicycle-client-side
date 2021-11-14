@@ -8,6 +8,7 @@ import './DashboardHome.css';
 const DashboardHome = () => {
     let sideBarFlag = true;
     let elementSelector = '';
+    const userAdmin = localStorage.getItem('userAdmin');
 
     const sideBarToggler = () => {
         if (sideBarFlag === false) {
@@ -47,8 +48,8 @@ const DashboardHome = () => {
                         <h4>Menu</h4>
                     </div>
                     <div className="custom-routes p-3" id="dashboard-routes">
-                        <UDHome></UDHome>
-                        {/* <ADHome></ADHome> */}
+                        {!userAdmin && <UDHome></UDHome>}
+                        {userAdmin && <ADHome></ADHome>}
                     </div>
                 </div>
             </div>
