@@ -6,7 +6,6 @@
     display: block;
     width: 100vw;
     height: calc(100vh - 50px);
-    padding: 0 0 10 0;
 }
 
 .custom-nav {

@@ -44,11 +44,11 @@ const DashboardHome = () => {
             <div>
                 <div className="dashboard-container">
                     <div id="side-bar" className="custom-nav bg-primary text-white p-3 text-start">
-                        <h4 className="ps-3">Menu</h4>
+                        <h4>Menu</h4>
                     </div>
                     <div className="custom-routes p-3" id="dashboard-routes">
                         <UDHome></UDHome>
-                        <ADHome></ADHome>
+                        {/* <ADHome></ADHome> */}
                     </div>
                 </div>
             </div>
