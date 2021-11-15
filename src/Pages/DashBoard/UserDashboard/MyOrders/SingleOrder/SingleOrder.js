@@ -17,6 +17,7 @@ const SingleOrder = (props) => {
                 // console.log(data);
                 if (data.acknowledged) {
                     window.alert('Order cancelled successfully');
+                    window.location.reload();
                 }
             })
         }
