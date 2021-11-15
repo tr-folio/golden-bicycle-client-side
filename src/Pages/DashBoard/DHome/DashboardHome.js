@@ -52,6 +52,10 @@ const DashboardHome = () => {
                         {!userAdmin && <h6><Link to="/dashboard/myorders" style={{color: 'white', textDecoration: 'none'}}><Button variant="light" style={{width: '100%'}}>My Orders</Button></Link></h6>}
                         {!userAdmin && <h6><Link to="/dashboard/review" style={{color: 'white', textDecoration: 'none'}}><Button variant="light" style={{width: '100%'}}>Review</Button></Link></h6>}
                         {!userAdmin && <h6><Link to="/dashboard/pay" style={{color: 'white', textDecoration: 'none'}}><Button variant="light" style={{width: '100%'}}>Pay</Button></Link></h6>}
+                        {userAdmin && <h6><Link to="/dashboard/manageAllOrders" style={{color: 'white', textDecoration: 'none'}}><Button variant="light" style={{width: '100%'}}>Manage All Orders</Button></Link></h6>}
+                        {userAdmin && <h6><Link to="/dashboard/addAProduct" style={{color: 'white', textDecoration: 'none'}}><Button variant="light" style={{width: '100%'}}>Add A Product</Button></Link></h6>}
+                        {userAdmin && <h6><Link to="/dashboard/makeAdmin" style={{color: 'white', textDecoration: 'none'}}><Button variant="light" style={{width: '100%'}}>Make Admin</Button></Link></h6>}
+                        {userAdmin && <h6><Link to="/dashboard/manageProducts" style={{color: 'white', textDecoration: 'none'}}><Button variant="light" style={{width: '100%'}}>Manage Products</Button></Link></h6>}
                         <h6><Button variant="light" style={{width: '100%'}} onClick={() => logout(history)}>Logout</Button></h6>
                     </div>
                     <div className="custom-routes p-3" id="dashboard-routes">
