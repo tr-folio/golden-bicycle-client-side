@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
 
-const Review = (props) => {
+const EachReview = (props) => {
     const { review } = props;
     let review_star_filled = [];
     let review_star_empty = [];
@@ -20,12 +20,13 @@ const Review = (props) => {
 
     return (
         <Row className="mb-3">
-            <h3 className="text-start">Reviewed by: {review.review_by}</h3>
+            <h3 className="text-start text-primary fw-light">Reviewed by: {review.review_by}</h3>
+            <h6 className="text-start fw-bold">on Product: {review.review_product}</h6>
             <div className="d-flex justify-content-between">
                 <div className="text-center">Rating: {review.rating}</div>
                 <div>
-                    {review_star_filled.map(star => <i className='fas fa-star' key={star}></i>)}
-                    {review_star_empty.map(star => <i className='far fa-star' key={star}></i>)}
+                    {review_star_filled.map(star => <i className='fas fa-star text-warning' key={star}></i>)}
+                    {review_star_empty.map(star => <i className='far fa-star text-warning' key={star}></i>)}
                 </div>
             </div>
             <p className="fs-5" style={{textAlign: 'justify'}}>
@@ -35,4 +36,4 @@ const Review = (props) => {
     )
 }
 
-export default Review;
+export default EachReview;

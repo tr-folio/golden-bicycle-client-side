@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import Review from './Review/Review';
+import EachReview from './ShowReview/EachReview';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -17,7 +17,7 @@ const Reviews = () => {
             <hr/>
             <Container>
                 {
-                    reviews.map(review => <Review key={review.review_id} review={review}></Review>)
+                    reviews.map(review => <EachReview key={review.review_id} review={review}></EachReview>)
                 }
             </Container>
         </div>
