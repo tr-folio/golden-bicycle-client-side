@@ -8,7 +8,7 @@ const CarbonBicycle = () => {
             <hr/>
             <Row>
                 <Col xs="12" lg="6" className="mb-3">
-                    <img src="https://i.ibb.co/dKycf1w/robert-bye-t-G36rv-Ceqng-unsplash.jpg" alt="" className="img-fluid"/>
+                    <img src="https://i.ibb.co/BCXJQ5d/clayton-cardinalli-f-Q5-Hy3iv-Px-A-unsplash.jpg" alt="" className="img-fluid"/>
                 </Col>
                 <Col xs="12" lg="6">
                     <h3 className="fw-light mb-3">Carbon Fiber Sports Bicycle</h3>
