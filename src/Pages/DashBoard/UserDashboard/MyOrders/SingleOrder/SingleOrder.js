@@ -8,7 +8,17 @@ const SingleOrder = (props) => {
         const cancelOrderFlag = window.confirm('Do you want to cancel order?');
         if (cancelOrderFlag) {
             // console.log('cancel order');
-            console.log(order._id);
+            // console.log(order._id);
+            fetch(`http://localhost:5000/cancelOrder/${order._id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.acknowledged) {
+                    window.alert('Order cancelled successfully');
+                }
+            })
         }
     }
 
