@@ -8,14 +8,15 @@ const SingleOrder = (props) => {
         const cancelOrderFlag = window.confirm('Do you want to cancel order?');
         if (cancelOrderFlag) {
             // console.log('cancel order');
+            console.log(order._id);
         }
     }
 
     return (
         <Col xs="12" md="6" lg="4">
             <div className="border border-1">
-                <div>
-                    <img src={order.img} alt="" className="img-fluid"/>
+                <div style={{height: '250px'}}>
+                    <img src={order.img} alt="" style={{width: '100%', height: '100%'}}/>
                 </div>
                 <br/>
                 <h5>Product Name: {order.productName}</h5>
