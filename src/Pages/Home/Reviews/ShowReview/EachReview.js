@@ -7,13 +7,13 @@ const EachReview = (props) => {
     let review_star_empty = [];
 
     let i = 0;
-    while (i < review.rating) {
+    while (i < parseInt(review.rating)) {
         review_star_filled.push(i);
         i = i + 1;
     }
 
     i = 0;
-    while (i < (5 - review.rating)) {
+    while (i < (5 - parseInt(review.rating))) {
         review_star_empty.push(i);
         i = i + 1;
     }
