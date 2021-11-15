@@ -1,28 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 const MakeAdmin = () => {
+    let validUser = false;
     let emailField = '';
     let email = '';
 
+    
     const handleMakeAdmin = (event) => {
         event.preventDefault();
         emailField = document.getElementById('email');
         email = emailField.value;
         // console.log(email);
-        const user = {email: email};
-        fetch('http://localhost:5000/makeAnAdmin', {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
+        fetch(`http://localhost:5000/checkValidUser/${email}`)
         .then(res => res.json())
         .then(data => {
-            // console.log(data);
-            if (data.acknowledged) {
-                window.alert('Made admin successful');
+            validUser = data.isValidUser;
+            console.log(validUser);
+        })
+        .then(() => {
+            if (validUser) {
+                // window.alert('valid user');
+                const user = {email: email};
+                fetch('http://localhost:5000/makeAnAdmin', {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    if (data.acknowledged) {
+                        window.alert('Made admin successful');
+                    }
+                })
+            }
+            else {
+                window.alert('invalid user');
             }
         })
     }
