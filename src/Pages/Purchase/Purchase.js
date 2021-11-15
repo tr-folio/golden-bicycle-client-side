@@ -12,10 +12,12 @@ const Purchase = () => {
     const formData = {
         id: selectedProduct.id,
         productName: selectedProduct.productName,
+        img: selectedProduct.img,
         userName: userName,
         userEmail: userEmail,
         address: '',
-        phone: ''
+        phone: '',
+        status: 'pending'
     };
     const { id } = useParams();
     
@@ -69,6 +71,10 @@ const Purchase = () => {
                         <h2 className="fw-light text-primary">Product Detail</h2>
                         <hr/>
                         <div>
+                            <div>
+                                <img src={selectedProduct.img} alt="" className="img-fluid"/>
+                            </div>
+                            <br/>
                             <h4 className="text-start">Product Name: {selectedProduct.productName}</h4>
                             <div>
                                 <h4 className="text-start">Product Description: </h4>

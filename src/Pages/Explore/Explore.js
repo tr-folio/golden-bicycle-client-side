@@ -10,7 +10,10 @@ const Explore = () => {
     useEffect(() => {
         fetch('http://localhost:5000/readproducts')
         .then(res => res.json())
-        .then(data => setProducts(data));
+        .then(data => {
+            setProducts(data);
+            console.log(data);
+        });
     }, []);
 
     return (
