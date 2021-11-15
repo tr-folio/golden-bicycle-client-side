@@ -18,7 +18,7 @@ const Products = () => {
             <Container>
                 <Row>
                     {
-                        products.map(product => <Product key={product.id} product={product}></Product>)
+                        products.map(product => <Product key={product._id} product={product}></Product>)
                     }
                 </Row>
             </Container>
