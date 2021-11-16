@@ -13,6 +13,9 @@ const ManageAProduct = (props) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                // if (data.acknowledged) {
+                //     window.alert('product deleted successfully');
+                // }
             })
         }
     }

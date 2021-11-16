@@ -10,7 +10,6 @@ const Purchase = () => {
     const userEmail = localStorage.getItem("userEmail");
 
     const formData = {
-        id: selectedProduct.id,
         productName: selectedProduct.productName,
         img: selectedProduct.img,
         userName: userName,
