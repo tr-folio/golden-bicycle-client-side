@@ -7,12 +7,8 @@ const ManageAProduct = (props) => {
     const deleteAProduct = () => {
         const deleteConfirmation = window.confirm('Do you want to delete this item?');
         if (deleteConfirmation) {
-            fetch('http://localhost:5000/deleteAProduct', {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({id: product.id})
+            fetch(`http://localhost:5000/deleteAProduct/${product._id}`, {
+                method: 'DELETE'
             })
             .then(res => res.json())
             .then(data => {
