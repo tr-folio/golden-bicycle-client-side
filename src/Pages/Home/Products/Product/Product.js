@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Product = (props) => {
     const { product } = props;
+    const id = product._id;
 
     return (
         <Col xs="12" md="6" lg="4" className="mb-3">
@@ -14,7 +15,7 @@ const Product = (props) => {
             <p>
                 {product.description}
             </p>
-            <Link to={`/purchase/${product.id}`}><Button variant="primary" className="w-100">Purchase</Button></Link>
+            <Link to={`/purchase/${id}`}><Button variant="primary" className="w-100">Purchase</Button></Link>
         </Col>
     );
 }
