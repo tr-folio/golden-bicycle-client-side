@@ -19,7 +19,7 @@ const ManageProducts = () => {
                 <Row>
                 {
                     allProducts.map(product => 
-                        <ManageAProduct key={product.id} product={product}></ManageAProduct>    
+                        <ManageAProduct key={product._id} product={product}></ManageAProduct>    
                     )
                 }
                 </Row>
