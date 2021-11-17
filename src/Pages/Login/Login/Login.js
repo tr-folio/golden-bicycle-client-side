@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import Header from '../../Shared/Header/Header';
 
 const Login = () => {
-    const { user, isLoading, loginUser } = useAuth();
+    const { user, isLoading, loginUser, signInWithGoogle } = useAuth();
     const location = useLocation();
     const history = useHistory();
 
@@ -45,6 +45,10 @@ const Login = () => {
                         </p>
                         {isLoading && <Spinner animation="border" variant="primary"></Spinner>}
                         {user?.email && <p className="text-success">Successfully Logged In</p>}
+                        <p>---------------or---------------</p>
+                        <p>
+                            <Button variant="primary" onClick={() => signInWithGoogle(location, history)}>Google Sign In</Button>
+                        </p>
                     </Col>
                     <Col xs="12" lg="6">
                         <img src="https://i.ibb.co/wccXj9N/eberhard-grossgasteiger-8l-Dkm-Xn-Ko7s-unsplash.jpg" alt="" className="img-fluid" style={{borderRadius: '50%'}}/>
