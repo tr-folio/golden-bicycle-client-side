@@ -21,7 +21,7 @@ const Purchase = () => {
     const { id } = useParams();
     
     useEffect(() => {
-        fetch(`http://localhost:5000/readSingleProduct/${id}`)
+        fetch(`https://powerful-dawn-56436.herokuapp.com/readSingleProduct/${id}`)
         .then(res => res.json())
         .then(data => setSelectedProduct(data[0]));
     }, [id]);
@@ -39,7 +39,7 @@ const Purchase = () => {
         const placeOrderFlag = window.confirm('Do you want to place order?');
         if (placeOrderFlag) {
             // console.log('yes');
-            fetch('http://localhost:5000/placeorders', {
+            fetch('https://powerful-dawn-56436.herokuapp.com/placeorders', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

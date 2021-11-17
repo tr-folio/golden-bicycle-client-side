@@ -9,7 +9,7 @@ const SingleOrder = (props) => {
         if (cancelOrderFlag) {
             // console.log('cancel order');
             // console.log(order._id);
-            fetch(`http://localhost:5000/cancelOrder/${order._id}`, {
+            fetch(`https://powerful-dawn-56436.herokuapp.com/cancelOrder/${order._id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

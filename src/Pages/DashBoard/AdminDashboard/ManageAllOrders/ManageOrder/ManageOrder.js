@@ -6,7 +6,7 @@ const ManageOrder = (props) => {
 
     const changeToShipped = () => {
         // window.alert('shipped');
-        fetch('http://localhost:5000/changeStatus', {
+        fetch('https://powerful-dawn-56436.herokuapp.com/changeStatus', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -25,7 +25,7 @@ const ManageOrder = (props) => {
 
     const deleteOrder = () => {
         // window.alert('delete order');
-        fetch(`http://localhost:5000/deleteAnOrder/${order._id}`, {
+        fetch(`https://powerful-dawn-56436.herokuapp.com/deleteAnOrder/${order._id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

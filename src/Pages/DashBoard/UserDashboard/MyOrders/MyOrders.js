@@ -7,7 +7,7 @@ const MyOrders = () => {
     const userEmail = localStorage.getItem("userEmail");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/readSpecificOrders/${userEmail}`)
+        fetch(`https://powerful-dawn-56436.herokuapp.com/readSpecificOrders/${userEmail}`)
         .then(res => res.json())
         .then(data => setUserOrders(data));
     }, []);

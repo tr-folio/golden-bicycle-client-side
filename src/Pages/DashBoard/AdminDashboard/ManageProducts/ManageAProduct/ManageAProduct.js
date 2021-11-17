@@ -7,7 +7,7 @@ const ManageAProduct = (props) => {
     const deleteAProduct = () => {
         const deleteConfirmation = window.confirm('Do you want to delete this item?');
         if (deleteConfirmation) {
-            fetch(`http://localhost:5000/deleteAProduct/${product._id}`, {
+            fetch(`https://powerful-dawn-56436.herokuapp.com/deleteAProduct/${product._id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

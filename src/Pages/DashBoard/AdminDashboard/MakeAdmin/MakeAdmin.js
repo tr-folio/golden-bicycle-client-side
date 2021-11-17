@@ -12,7 +12,7 @@ const MakeAdmin = () => {
         emailField = document.getElementById('email');
         email = emailField.value;
         // console.log(email);
-        fetch(`http://localhost:5000/checkValidUser/${email}`)
+        fetch(`https://powerful-dawn-56436.herokuapp.com/checkValidUser/${email}`)
         .then(res => res.json())
         .then(data => {
             validUser = data.isValidUser;
@@ -22,7 +22,7 @@ const MakeAdmin = () => {
             if (validUser) {
                 // window.alert('valid user');
                 const user = {email: email};
-                fetch('http://localhost:5000/makeAnAdmin', {
+                fetch('https://powerful-dawn-56436.herokuapp.com/makeAnAdmin', {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'

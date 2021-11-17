@@ -115,7 +115,7 @@ const useFirebase = () => {
 
     // check if current user is an admin or normal user
     useEffect(() => {
-        fetch(`http://localhost:5000/checkAdmin/${user.email}`)
+        fetch(`https://powerful-dawn-56436.herokuapp.com/checkAdmin/${user.email}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data.admin);
@@ -127,7 +127,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName) => {
         const user = {email: email, displayName: displayName, role: 'normal'};
-        fetch('http://localhost:5000/postusers', {
+        fetch('https://powerful-dawn-56436.herokuapp.com/postusers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -138,7 +138,7 @@ const useFirebase = () => {
 
     const saveGoogleUser = (email, displayName) => {
         const user = {email: email, displayName: displayName};
-        fetch('http://localhost:5000/putGoogleUser', {
+        fetch('https://powerful-dawn-56436.herokuapp.com/putGoogleUser', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

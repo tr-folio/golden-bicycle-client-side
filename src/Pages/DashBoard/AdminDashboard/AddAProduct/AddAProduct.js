@@ -17,7 +17,7 @@ const AddAProduct = () => {
     const handleAddAProduct = (event) => {
         event.preventDefault();
         // console.log(productData);
-        fetch('http://localhost:5000/addAProduct', {
+        fetch('https://powerful-dawn-56436.herokuapp.com/addAProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

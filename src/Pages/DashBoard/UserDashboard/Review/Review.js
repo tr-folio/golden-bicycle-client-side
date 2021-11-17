@@ -21,7 +21,7 @@ const Review = () => {
     const handleReviewSubmit = (event) => {
         event.preventDefault();
         // console.log(reviewData);
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://powerful-dawn-56436.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -39,7 +39,7 @@ const Review = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/readProductNames')
+        fetch('https://powerful-dawn-56436.herokuapp.com/readProductNames')
         .then(res => res.json())
         .then(data => setProductNames(data));
     }, []);
