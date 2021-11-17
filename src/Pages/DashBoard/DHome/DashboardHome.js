@@ -36,7 +36,7 @@ const DashboardHome = () => {
 
     return (
         <div>
-            <div className="custom-dashboard-header bg-dark py-1">
+            <div className="custom-dashboard-header bg-dark py-1" style={{minWidth: '100vw'}}>
                 <Container className="d-flex justify-content-between">
                     <div><h3 className="text-light">Dashboard</h3></div>
                     <div>

@@ -23,8 +23,19 @@ const ManageOrder = (props) => {
         })
     }
 
-    const deleteProduct = () => {
-        window.alert('delete product');
+    const deleteOrder = () => {
+        // window.alert('delete order');
+        fetch(`http://localhost:5000/deleteAnOrder/${order._id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data);
+            if (data.acknowledged) {
+                window.alert('order deleted successfully');
+                window.location.reload();
+            }
+        })
     }
     
     return (
@@ -36,7 +47,7 @@ const ManageOrder = (props) => {
             <td>{order.phone}</td>
             <td>{order.status}</td>
             <td><Button variant="primary" onClick={changeToShipped}>Shipped</Button></td>
-            <td><Button variant="danger" onClick={deleteProduct}>Delete</Button></td>
+            <td><Button variant="danger" onClick={deleteOrder}>Delete</Button></td>
         </tr>
     );
 };
