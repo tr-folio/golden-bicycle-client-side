@@ -70,6 +70,9 @@ const useFirebase = () => {
             // The signed-in user info.
             const user = result.user;
             // ...
+            saveGoogleUser(user.email, user.displayName);
+            localStorage.setItem("userName", user.displayName);
+            localStorage.setItem("userEmail", user.email);
             const destination = location?.state?.from || '/';
             history.replace(destination);
         }).catch((error) => {
@@ -126,6 +129,17 @@ const useFirebase = () => {
         const user = {email: email, displayName: displayName, role: 'normal'};
         fetch('http://localhost:5000/postusers', {
             method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+    }
+
+    const saveGoogleUser = (email, displayName) => {
+        const user = {email: email, displayName: displayName};
+        fetch('http://localhost:5000/putGoogleUser', {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
