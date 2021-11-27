@@ -6,11 +6,11 @@ This website will provide bicycle information of different models. One can place
 
 ### Site Features
 
+* Architected as a Full-Stack Web Application, implemented order placement, reviewing section, and secured login/register system
 * One can choose his/her desired from bicycles collection.
-* One can place order to buy bicycle.
-* One can add a review and it will be displayed in the home page.
-* A placed order can be cancelled (if needed)
-* There is also an admin system where an admin can make a new admin, change product status, add a new product, delete a product and more.
+* Developed user dashboard with managing orders and review adding features.
+* Developed admin dashboard containing adding products, deleting products, changing order status, and making admin.
+* Added Google login system with Firebase authentication.
 
 ## Live Site Link
 
