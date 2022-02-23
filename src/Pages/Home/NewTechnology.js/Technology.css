@@ -1,0 +1,12 @@
+.technology-title {
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  vertical-align: middle;
+  border: 1px solid white;
+  border-radius: 100px;
+}
+
+.view-technology {
+  width: 200px;
+}

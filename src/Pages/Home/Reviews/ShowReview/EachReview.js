@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row } from 'react-bootstrap';
+import { Col} from 'react-bootstrap';
+import "./EachReview.css";
 
 const EachReview = (props) => {
     const { review } = props;
@@ -18,21 +19,37 @@ const EachReview = (props) => {
         i = i + 1;
     }
 
+    const showFullReview = () => {
+        document.getElementById(`${review._id+'a'}`).style.display = "block";
+        document.getElementById(`${review._id}`).style.display = "none";
+    }
+    const hideFullReview = () => {
+        document.getElementById(`${review._id+'a'}`).style.display = "none";
+        document.getElementById(`${review._id}`).style.display = "block";
+    }
+
     return (
-        <Row className="mb-3">
-            <h3 className="text-start text-primary fw-light">Reviewed by: {review.review_by}</h3>
-            <h6 className="text-start fw-bold">on Product: {review.review_product}</h6>
-            <div className="d-flex justify-content-between">
-                <div className="text-center">Rating: {review.rating}</div>
-                <div>
-                    {review_star_filled.map(star => <i className='fas fa-star text-warning' key={star}></i>)}
-                    {review_star_empty.map(star => <i className='far fa-star text-warning' key={star}></i>)}
+        <Col className="mb-3 d-flex justify-content-center">
+            <div className="review-card p-3"><h5 className="text-start text-primary fw-light">Reviewed by: {review.review_by}</h5>
+                <h6 className="text-start">Product: {review.review_product}</h6>
+                <div className="d-flex justify-content-between">
+                    <div className="text-center"><h6>Rating:&nbsp;
+                    <span>
+                        {review_star_filled.map(star => <i className='fas fa-star text-warning' key={star}></i>)}
+                        {review_star_empty.map(star => <i className='far fa-star text-warning' key={star}></i>)}
+                    </span></h6></div>
                 </div>
+                <p className="fs-6 text-start">
+                    {review.review_text.length >= 40 ? 
+                    <span>
+                        <span id={review._id}>{review.review_text.slice(0, 41)} ... <button className="bg-primary border-0 text-white rounded-pill mt-1 px-3" onClick={showFullReview}>Read more</button></span>
+                        <span className="full-review-text" id={review._id+'a'}>{review.review_text}<br/><button className="bg-dark border-0 text-white rounded-pill mt-1 px-3" onClick={hideFullReview}>Read less</button></span>
+                    </span> 
+                    : <span>{review.review_text}</span>}
+                    
+                </p>
             </div>
-            <p className="fs-5" style={{textAlign: 'justify'}}>
-                {review.review_text}
-            </p>
-        </Row>
+        </Col>
     )
 }
 
